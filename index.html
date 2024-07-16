@@ -42,7 +42,10 @@
                     backCameraId,
                     {
                         fps: 10,
-                        qrbox: { width: 100, height: 100 }  // Tamanho do box de leitura do QR Code
+                        qrbox: {width: 100, height: 100},
+                        rememberLastUsedCamera: true,
+                        // Only support camera scan type.
+                        supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA]
                     },
                     (decodedText, decodedResult) => {
                         console.log(`Código lido: ${decodedText}`);
