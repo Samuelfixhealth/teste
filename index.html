@@ -12,18 +12,20 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            height: calc(100vh - 300px);
+            height: 100vh;
+            margin: 0;
         }
         #reader {
-            width: 300px;
-            height: 300px;
+            width: 100vw;
+            height: 100vw;
+            max-width: 500px;
+            max-height: 500px;
         }
     </style>
 </head>
 <body>
     <main>
         <div id="reader"></div>
-        <input class="btn" type="file" id="file-input" accept="image/*" />
     </main>
     <script>
         Html5Qrcode.getCameras().then(devices => {
@@ -40,7 +42,7 @@
                     backCameraId,
                     {
                         fps: 10,
-                        qrbox: { width: 250, height: 250 }
+                        qrbox: { width: 250, height: 250 }  // Tamanho do box de leitura do QR Code
                     },
                     (decodedText, decodedResult) => {
                         console.log(`Código lido: ${decodedText}`);
@@ -55,20 +57,6 @@
             }
         }).catch(err => {
             console.error(`Erro ao obter as câmeras: ${err}`);
-        });
-
-        document.getElementById('file-input').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const html5QrCode = new Html5Qrcode("reader");
-                html5QrCode.scanFile(file, true)
-                    .then(decodedText => {
-                        window.location.href = decodedText; // Redireciona imediatamente para o URL lido
-                    })
-                    .catch(err => {
-                        console.error(`Erro ao ler o QR code da imagem: ${err}`);
-                    });
-            }
         });
     </script>
 </body>
