@@ -48,6 +48,8 @@ if (isset($_SESSION['access_token'])) {
 
             echo "Arquivo enviado com sucesso! ID: " . $response->getId();
         } catch (Exception $e) {
+
+            dd($fileData);
             echo "Erro ao enviar o arquivo: " . $e->getMessage();
         }
 
