@@ -16,6 +16,9 @@ $clientSecret = $_ENV['CLIENT_SECRET'];
 $tenantId = $_ENV['TENANT_ID'];
 $redirectUri = $_ENV['REDIRECT_URI'];
 
+
+dd($_SESSION);
+dd($_FILES);
 // Verifica se o arquivo foi enviado antes da autenticação
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file'])) {
     $_SESSION['file_name'] = $_FILES['file']['name'];
