@@ -12,6 +12,8 @@
         <label for="file">Escolha um arquivo para enviar:</label>
         <input type="file" name="file" id="file" required>
         <button type="submit">Fazer Upload</button>
+
+        fdsdfsdf
     </form>
 </body>
 </html>
