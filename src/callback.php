@@ -58,7 +58,7 @@ if (isset($_GET['code'])) {
             if (isset($responseData['access_token'])) {
                 $_SESSION['access_token'] = $responseData['access_token'];
                 // Redirecionar para a página de upload após receber o token
-                header('Location: upload.php');
+                header('Location: Update.php');
                 exit();
             } else {
                 echo "Erro ao obter o token de acesso: " . json_encode($responseData);
