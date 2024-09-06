@@ -41,13 +41,10 @@ if (isset($_SESSION['access_token'])) {
         $graph->setAccessToken($_SESSION['access_token']);
 
         try {
-            dd($fileName);
-
-            $response = $graph->createRequest("PUT", "/me/drive/root:/".basename($fileName).":/content")
-                ->upload($fileData);
+            $response = $graph->createRequest("PUT", "/me/drive/root:/".basename($fileName).":/content")->upload($fileData);
 
             echo "Arquivo enviado com sucesso! ID: " . $response->getId();
-        } catch (Exception $e) {
+        } catch (Exception $e) {    
 
             echo "Erro ao enviar o arquivo: " . $e->getMessage();
         }
