@@ -3,7 +3,10 @@
     "autoload": {
         "psr-4": {
             "Samuelsilva\\Teste\\": "src/"
-        }
+        },
+        "files": [
+            "functions.php"
+        ]
     },
     "authors": [
         {
