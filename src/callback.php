@@ -15,6 +15,8 @@ $clientSecret = $_ENV['CLIENT_SECRET'];
 $tenantId = $_ENV['TENANT_ID'];
 $redirectUri = $_ENV['REDIRECT_URI'];
 
+dd($_FILES);
+
 if (isset($_GET['code'])) {
     $code = $_GET['code'];
 
