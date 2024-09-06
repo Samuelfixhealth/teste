@@ -36,8 +36,6 @@ if (isset($_SESSION['access_token'])) {
         $fileName = $_SESSION['file_name'];
         $fileTmpPath = $_SESSION['file_tmp_path'];
         $fileData = file_get_contents($fileTmpPath);
-        
-        dd($fileTmpPath);
 
         $graph = new Graph();
         $graph->setAccessToken($_SESSION['access_token']);
@@ -48,6 +46,8 @@ if (isset($_SESSION['access_token'])) {
 
             echo "Arquivo enviado com sucesso! ID: " . $response->getId();
         } catch (Exception $e) {
+
+            dd($fileData);
             echo "Erro ao enviar o arquivo: " . $e->getMessage();
         }
 
