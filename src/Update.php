@@ -17,8 +17,6 @@ $tenantId = $_ENV['TENANT_ID'];
 $redirectUri = $_ENV['REDIRECT_URI'];
 
 
-dd($_SESSION);
-dd($_FILES);
 // Verifica se o arquivo foi enviado antes da autenticação
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file'])) {
     $_SESSION['file_name'] = $_FILES['file']['name'];
@@ -38,6 +36,8 @@ if (isset($_SESSION['access_token'])) {
         $fileName = $_SESSION['file_name'];
         $fileTmpPath = $_SESSION['file_tmp_path'];
         $fileData = file_get_contents($fileTmpPath);
+        
+        dd($fileTmpPath);
 
         $graph = new Graph();
         $graph->setAccessToken($_SESSION['access_token']);
